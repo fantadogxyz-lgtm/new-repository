@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <script src="/chat.js" defer></script>
+    <link rel="stylesheet" href="/main-css.css">
+
+</head>
+<body>
+<h1>Simple Chat</h1>
+<h2 class="page_loc">Чатик</h2>
+<p id="user-info"></p>
+<h4>Новые сообщения отображаются сверху</h4>
+<button class = "btn-new" type="button" onclick="goIndex()">Главная</button>
+<br>
+<br>
+<input class = "qwerty" id="message-input" type="text" placeholder="Введите сообщение">
+<button class = "btn-new" type="button" onclick="sendMessage()">Отправить</button>
+
+<div id="chat-box"></div>
+
+<button class = "btn-new" type="button" onclick="hello()">Кнопка</button>
+
+</body>
+</html>

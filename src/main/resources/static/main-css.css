@@ -1,0 +1,61 @@
+.btn-new {
+    width: 10em;
+    height: 40px;
+    border-radius: 10px;
+    border-color: #323c59;
+    color: white;
+    transition: .2s linear;
+    background: #10131c;
+    margin: 10px;
+}
+
+.btn-new:hover {
+    box-shadow: #dee9ef 0 0px 0px 40px inset;
+    color: #10131c;
+}
+
+body{
+    background-color: #121620;
+}
+p{
+    color: #dee9ef;
+    font-size: 22px;
+}
+h1, h5, h2, h6, h3, h4{
+    color: #dee9ef;
+}
+
+
+.time{
+        color: #55ffff;
+}
+.username{
+        color: #9c5cff;
+}
+
+.qwerty{
+    border-radius: 7px;
+    transition: .2s linear;
+        border:1px solid #9b5cfd;
+        background-color: #263049;
+        color: #dee9ef;
+        height: 30px;
+    width: 400px;
+}
+
+.qwerty:focus {
+    color: #68b6b6;
+    border: 1px solid #ffffff
+}
+
+h1{
+    color: #b590f6;
+}
+
+.page_loc{
+    color: #c3c6ff;
+}
+
+.info-auth{
+    font-size: 30px;
+}

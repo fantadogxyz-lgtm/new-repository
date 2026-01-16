@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <script src="/auth.js"></script>
+    <link rel="stylesheet" href="/main-css.css">
+</head>
+<body>
+<h1>Simple Chat</h1>
+<h2 class="page_loc">Авторизация</h2>
+<form onsubmit="login(event)">
+    <label>
+        <p>Username:</p>
+        <input id="username" type="text" required>
+    </label>
+    <br>
+    <label>
+        <p>Password:</p>
+        <input id="password" type="password" required>
+    </label>
+    <br>
+    <button class = "btn-new" type="button" onclick="login()">Войти</button>
+    <button class = "btn-new" type="button" onclick="regist()">Зарегистрироваться</button>
+</form>
+<button class = "btn-new" type="button" onclick="goIndex()">Главная</button>
+</body>
+</html>
