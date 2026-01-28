@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class LoginController {
 
     @PostMapping
     @Transactional
-    ResponseEntity<LoginResponseDto> postLoginToCheck(@RequestBody LoginResponseDto loginResponseDto){
+    ResponseEntity<LoginResponseDto> postLoginToCheck(@RequestBody @Validated LoginResponseDto loginResponseDto){
         try {
             AuthStatus authStatus = loginService.postLoginToCheck(loginResponseDto);
             switch (authStatus) {
