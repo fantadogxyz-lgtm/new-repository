@@ -7,6 +7,7 @@ import com.example.simple_chat.services.RegistServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public class RegistController {
     }
 
     @PostMapping
-    ResponseEntity<RegistResponseDto> register(@RequestBody RegistResponseDto registResponseDto){
+    ResponseEntity<RegistResponseDto> register(@RequestBody @Validated RegistResponseDto registResponseDto){
         try {
             AuthStatus authStatus = registService.postRegistToCheck(registResponseDto);
 
