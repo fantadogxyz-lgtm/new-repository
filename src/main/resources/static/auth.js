@@ -1,9 +1,19 @@
+let regexp = /<(.*?)>/g;
+
+
 async function login() {
     event.preventDefault(); // чтобы форма не перезагружала страницу
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    if(username.trim() === "" || password.trim() === "") {alert("Поля в форме не могут быть пустыми."); return;}
-    // условно отправляем данные на сервер
+
+    //тут вот будет проверочка на валидность ника и пароля
+    const username_errors = validateUsername(username);
+    if (username_errors.length > 0){
+        alert(username_errors.join("\n"));
+        return;
+    }
+
+
     try {
         const res = await fetch("/login", {
             method: "POST",
@@ -25,6 +35,7 @@ async function login() {
         }
     } catch (err) {
         console.error("Ошибка при логине:", err);
+
     }
 }
 
@@ -60,4 +71,35 @@ async function regist(){
 
 function goIndex(){
     window.location.href = "/";
+}
+
+
+function validateUsername(username){
+    const errors = [];
+
+    if(!username || username.trim() ===''){
+        errors.push("Username can't be empty");
+        return errors;
+    }
+
+    if (username.length < 4){
+        errors.push("Username must have at least 4 characters");
+    }
+
+    if (username.length > 50){
+        errors.push("Username cannot have more than 50 characters");
+    }
+
+    const usernameRegex = /^[A-Za-z][A-Za-z0-9_-]+$/;
+    if(!usernameRegex.test(username)){
+        if(!/^[A-Za-z]/.test(username)){
+            errors.push("Username must start with a letter (A-Z, a-z)");
+        }
+        if(/^[A-Za-z][A-Za-z0-9_-]+$/.test(username)){
+            errors.push("Username must have only latin letters (A-Z, a-z), numbers and some special symbols(_-)");
+        }
+    }
+
+    return errors;
+
 }
