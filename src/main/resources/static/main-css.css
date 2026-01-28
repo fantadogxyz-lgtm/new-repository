@@ -1,5 +1,5 @@
 .btn-new {
-    width: 10em;
+    width: 13em;
     height: 40px;
     border-radius: 10px;
     border-color: #323c59;
@@ -7,6 +7,7 @@
     transition: .2s linear;
     background: #10131c;
     margin: 10px;
+    font-family: Georgia;
 }
 
 .btn-new:hover {
@@ -19,7 +20,7 @@ body{
 }
 p{
     color: #dee9ef;
-    font-size: 22px;
+    font-size: 24px;
 }
 h1, h5, h2, h6, h3, h4{
     color: #dee9ef;
@@ -53,9 +54,58 @@ h1{
 }
 
 .page_loc{
-    color: #c3c6ff;
+    color: #7abee3;
+    font-size: 30px;
+    font-family: "Book Antiqua";
+}
+
+.simple-chat{
+    font-size: 40px;
+    margin-top: 5px;
+    font-family: "Book Antiqua";
 }
 
 .info-auth{
     font-size: 30px;
+}
+
+.central_div{
+    width: 400px;
+    height: 520px;
+    background-color: #222430;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border-top: 3px solid #4f2f81;
+    border-left: 3px solid #341a5c;
+
+    box-shadow:10px 10px 5px #58358c;
+
+}
+.little_central_div{
+    width: 250px;
+    height: 500px;
+    text-align: center;
+
+}
+.auth_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 130px;
+    flex-direction: column;
+}
+
+.info-auth-errors{
+    margin-top: 15px;
+    width: 70%;
+    height: 90px;
+    font-size: 10px;
+    color: #55ffff;
+}
+
+.info-auth-errors-text{
+    color: #7abee3;
+    font-family: "Book Antiqua";
 }

@@ -6,23 +6,32 @@
     <script src="/auth.js"></script>
     <link rel="stylesheet" href="/main-css.css">
 </head>
-<body>
-<h1>Simple Chat</h1>
-<h2 class="page_loc">Авторизация</h2>
-<form onsubmit="login(event)">
-    <label>
-        <p>Username:</p>
-        <input id="username" type="text" required>
-    </label>
-    <br>
-    <label>
-        <p>Password:</p>
-        <input id="password" type="password" required>
-    </label>
-    <br>
-    <button class = "btn-new" type="button" onclick="login()">Войти</button>
-    <button class = "btn-new" type="button" onclick="regist()">Зарегистрироваться</button>
-</form>
-<button class = "btn-new" type="button" onclick="goIndex()">Главная</button>
+<body class="auth_body">
+
+<div class="central_div">
+    <div class="little_central_div">
+        <h1 class="simple-chat">Simple Chat</h1>
+        <h2 class="page_loc">Авторизация</h2>
+        <form onsubmit="login(event)">
+            <label>
+                <p>Username:</p>
+                <input id="username" type="text" required>
+            </label>
+            <br>
+            <label>
+                <p>Password:</p>
+                <input id="password" type="password" required>
+            </label>
+            <br>
+            <button class = "btn-new" type="button" onclick="login()">Войти</button>
+            <br>
+            <button class = "btn-new" type="button" onclick="regist()">Зарегистрироваться</button>
+        </form>
+        <button class = "btn-new" type="button" onclick="goIndex()">Главная</button>
+    </div>
+</div>
+<div class="info-auth-errors">
+    <h1 id="error-info" class="info-auth-errors-text"></h1>
+</div>
 </body>
 </html>

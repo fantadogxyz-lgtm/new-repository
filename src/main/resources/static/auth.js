@@ -7,13 +7,18 @@ async function login() {
     const password = document.getElementById("password").value;
 
     //тут вот будет проверочка на валидность ника и пароля
-    const username_errors = validateUsername(username);
-    if (username_errors.length > 0){
-        alert(username_errors.join("\n"));
+    const fields_errors = [];
+    fields_errors.push(validateUsername(username).join("\n"));
+    fields_errors.push(validatePassword(password).join("\n"));
+    if (fields_errors.length > 0){
+        const error_info = document.getElementById("error-info");
+        error_info.textContent = fields_errors.join("\n");
+        error_info.style.whiteSpace = "pre-line";
         return;
     }
 
-
+    const error_info = document.getElementById("error-info");
+    error_info.textContent = "";
     try {
         const res = await fetch("/login", {
             method: "POST",
@@ -46,7 +51,18 @@ async function regist(){
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    if(username.trim() === "" || password.trim() === "") {alert("Поля в форме не могут быть пустыми."); return;}
+
+    const fields_errors = [];
+    fields_errors.push(validateUsername(username).join("\n"));
+    fields_errors.push(validatePassword(password).join("\n"));
+    if (fields_errors.length > 0){
+        const error_info = document.getElementById("error-info");
+        error_info.textContent = fields_errors.join("\n");
+        error_info.style.whiteSpace = "pre-line";
+        return;
+    }
+    const error_info = document.getElementById("error-info");
+    error_info.textContent = "";
 
     try {
         const res = await fetch("/regist", {
@@ -95,11 +111,38 @@ function validateUsername(username){
         if(!/^[A-Za-z]/.test(username)){
             errors.push("Username must start with a letter (A-Z, a-z)");
         }
-        if(/^[A-Za-z][A-Za-z0-9_-]+$/.test(username)){
+        if(!/^[A-Za-z][A-Za-z0-9_-]+$/.test(username)){
             errors.push("Username must have only latin letters (A-Z, a-z), numbers and some special symbols(_-)");
         }
     }
 
     return errors;
+
+}
+
+
+function validatePassword(password){
+    const errors = [];
+
+    if(!password || password.trim() ===''){
+        errors.push("Password can't be empty");
+        return errors;
+    }
+
+    if (password.length < 8){
+        errors.push("Password must have at least 8 characters");
+    }
+
+    if (password.length > 50){
+        errors.push("Password cannot have more than 50 characters");
+    }
+
+    const passwordRegex = /^[A-Za-z0-9_-]+$/;
+    if(!passwordRegex.test(password)){
+            errors.push("Password must have only latin letters (A-Z, a-z), numbers and some special symbols(_-)");
+    }
+
+    return errors;
+
 
 }
