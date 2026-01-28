@@ -8,7 +8,7 @@ const client = new StompJs.Client({
 
 document.addEventListener("DOMContentLoaded", () => {
     const username = localStorage.getItem("username") || null;
-    document.getElementById("user-info").textContent = `Вы вошли как ${username}!`;
+    document.getElementById("user-info").textContent = `You are logged in as ${username}!`;
 });
 
 
@@ -47,11 +47,11 @@ function hello(){
 
 // отправка сообщения
 function sendMessage() {
-    if (!client.connected) { console.error("STOMP not connected yet"); alert("нету соединения с sw("); return; }
+    if (!client.connected) { console.error("STOMP not connected yet"); alert("No connection with sw("); return; }
 
     const input = document.getElementById("message-input");
     const messageContent = input.value;
-    if(messageContent.trim() === "") {alert("Вы не можете отправить пустое сообщение."); return;}
+    if(messageContent.trim() === "") {alert("You cannot send an empty message."); return;}
     const sender = localStorage.getItem("username");
     client.publish({ destination: "/app/send",
                     body: JSON.stringify({ sender, messageContent }) });
@@ -67,7 +67,7 @@ function checkAuth(){
     const auth = localStorage.getItem("auth") || false;
 
     if(username === null || auth === false) {
-        alert("Извините, но вам нужно авторизоватся, чтобы получить доступ к сообщениям");
+        alert("Sorry, but you need to log in to access messages");
         goIndex();
     }
 }
@@ -113,7 +113,7 @@ async function loadMessages() {
             });
         }
     } catch (err) {
-        console.error("Ошибка загрузки сообщений:", err);
+        console.error("Error loading messages:", err);
     }
 }
 

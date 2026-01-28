@@ -3,16 +3,16 @@ function render() {
 
     if (localStorage.getItem("auth") === "true") {
         app.innerHTML = `
-      <p>Вы вошли как ${localStorage.getItem("username") || "anon"}!</p>
-      <button class = "btn-new" onclick="goToChat()">Пойти в чат</button>
-      <button class = "btn-new" onclick="logout()">Выйти</button>
+      <p>You are logged in as ${localStorage.getItem("username") || "anon"}!</p>
+      <button class = "btn-new" onclick="goToChat()">Enter the chat</button>
+      <button class = "btn-new" onclick="logout()">Log out</button>
       <br>
     `;
     } else {
         app.innerHTML = `
-      <button class = "btn-new" onclick="goToAuth()">Войти или зарегистрироваться</button>
+      <button class = "btn-new" onclick="goToAuth()">Log in or Register</button>
       
-      <h2 class="info_auth">Вы не сможете зайти в чат, пока не авторизуетесь</h2>
+      <h2 class="info_auth">You cannot enter the chat until you log in</h2>
     `;
     }
 }

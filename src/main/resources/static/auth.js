@@ -8,8 +8,13 @@ async function login() {
 
     //тут вот будет проверочка на валидность ника и пароля
     const fields_errors = [];
-    fields_errors.push(validateUsername(username).join("\n"));
-    fields_errors.push(validatePassword(password).join("\n"));
+
+    const usernameErrors = validateUsername(username).join("\n");
+    const passwordErrors = validatePassword(password).join("\n");
+
+    if (usernameErrors) fields_errors.push(usernameErrors);
+    if (passwordErrors) fields_errors.push(passwordErrors);
+
     if (fields_errors.length > 0){
         const error_info = document.getElementById("error-info");
         error_info.textContent = fields_errors.join("\n");
@@ -32,14 +37,14 @@ async function login() {
             localStorage.setItem("username", username);
             window.location.href = "/"; // переход на главную
         } else if(res.status === 401) {
-            alert("Неверный логин или пароль! Попробуйте войти еще раз или зарегистрируйтесь");
+            alert("Invalid username or password! Please try again or register");
         } else if (res.status === 404){
-            alert("Ошибка! Пользователь с таким username не найден! Проверьте username или зарегистрируйтесь");
+            alert("Error! User with this username not found! Check your username or register");
         } else if (res.status === 500){
-            alert("Ошибка. Попрубуйте позже");
+            alert("Error. Please try again later");
         }
     } catch (err) {
-        console.error("Ошибка при логине:", err);
+        console.error("Login error:", err);
 
     }
 }
@@ -53,14 +58,20 @@ async function regist(){
     const password = document.getElementById("password").value;
 
     const fields_errors = [];
-    fields_errors.push(validateUsername(username).join("\n"));
-    fields_errors.push(validatePassword(password).join("\n"));
+
+    const usernameErrors = validateUsername(username).join("\n");
+    const passwordErrors = validatePassword(password).join("\n");
+
+    if (usernameErrors) fields_errors.push(usernameErrors);
+    if (passwordErrors) fields_errors.push(passwordErrors);
+
     if (fields_errors.length > 0){
         const error_info = document.getElementById("error-info");
         error_info.textContent = fields_errors.join("\n");
         error_info.style.whiteSpace = "pre-line";
         return;
     }
+
     const error_info = document.getElementById("error-info");
     error_info.textContent = "";
 
@@ -76,12 +87,12 @@ async function regist(){
             localStorage.setItem("username", username);
             window.location.href = "/"; // переход на главную
         } else if(res.status === 409) {
-            alert("Пользователь с таким username уже есть! Для регистрации введите иной username. Если это Вы, то войдите");
+            alert("User with this username already exists! For registration, please enter a different username. If this is you, please log in");
         }  else if (res.status === 500){
-            alert("Ошибка. Попрубуйте позже");
+            alert("Error. Please try again later");
         }
     } catch (err) {
-        console.error("Ошибка при регистрации:", err);
+        console.error("Registration error:", err);
     }
 }
 

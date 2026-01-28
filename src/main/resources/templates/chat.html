@@ -2,27 +2,28 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Чат</title>
+    <title>Chat</title>
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
     <script src="/chat.js" defer></script>
     <link rel="stylesheet" href="/main-css.css">
 
 </head>
-<body>
-<h1>Simple Chat</h1>
-<h2 class="page_loc">Чатик</h2>
-<p id="user-info"></p>
-<h4>Новые сообщения отображаются сверху</h4>
-<button class = "btn-new" type="button" onclick="goIndex()">Главная</button>
-<br>
-<br>
-<input class = "qwerty" id="message-input" type="text" placeholder="Введите сообщение">
-<button class = "btn-new" type="button" onclick="sendMessage()">Отправить</button>
+<body class="chat_body">
+<div class="div_for_chat">
+    <h1>Simple Chat</h1>
+    <h2 class="page_loc">Chat</h2>
+    <p id="user-info"></p>
+    <h4>New messages are displayed at the top</h4>
+    <button class = "btn-new" type="button" onclick="goIndex()">Home</button>
+    <br>
+    <br>
+    <input class = "qwerty" id="message-input" type="text" placeholder="Write smth here...">
+    <button class = "btn-new" type="button" onclick="sendMessage()">Send message</button>
 
-<div id="chat-box"></div>
+    <div id="chat-box"></div>
 
-<button class = "btn-new" type="button" onclick="hello()">Кнопка</button>
-
+    <button class = "btn-new" type="button" onclick="hello()">Кнопка</button>
+</div>>
 </body>
 </html>

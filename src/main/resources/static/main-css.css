@@ -7,7 +7,7 @@
     transition: .2s linear;
     background: #10131c;
     margin: 10px;
-    font-family: Georgia;
+    font-family: Bahnschrift;
 }
 
 .btn-new:hover {
@@ -21,9 +21,11 @@ body{
 p{
     color: #dee9ef;
     font-size: 24px;
+    font-family: "Arial Unicode MS";
 }
 h1, h5, h2, h6, h3, h4{
     color: #dee9ef;
+    font-family: "Arial Unicode MS";
 }
 
 
@@ -56,13 +58,13 @@ h1{
 .page_loc{
     color: #7abee3;
     font-size: 30px;
-    font-family: "Book Antiqua";
+    font-family: "Arial Unicode MS";
 }
 
 .simple-chat{
     font-size: 40px;
     margin-top: 5px;
-    font-family: "Book Antiqua";
+    font-family: "Arial Unicode MS";
 }
 
 .info-auth{
@@ -107,5 +109,36 @@ h1{
 
 .info-auth-errors-text{
     color: #7abee3;
-    font-family: "Book Antiqua";
+    font-family: "Arial Unicode MS";
+}
+
+.home_div{
+    width: 95%;
+    height: 300px;
+    background-color: #222430;
+    border-radius: 7px;
+    margin-top: 2.5%;
+    padding: 20px;
+}
+
+.index_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_for_chat{
+    width: 95%;
+    background-color: #222430;
+    border-radius: 7px;
+    margin-top: 2.5%;
+    padding: 20px;
+}
+
+.chat_body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
